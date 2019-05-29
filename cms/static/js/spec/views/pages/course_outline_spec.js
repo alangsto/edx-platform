@@ -1426,7 +1426,6 @@ describe('CourseOutlinePage', function() {
                         is_proctored_exam: true,
                         default_time_limit_minutes: 150,
                         supports_onboarding: false,
-                        show_review_rules: true,
                     }, [
                     ])
                 ])
@@ -1454,6 +1453,25 @@ describe('CourseOutlinePage', function() {
         });
 
         it('can select the Proctored exam option', function() {
+            var mockCourseWithSpecialExamJSON = createMockCourseJSON({}, [
+                createMockSectionJSON({
+                    has_changes: true,
+                    enable_proctored_exams: true,
+                    enable_timed_exams: true
+
+                }, [
+                    createMockSubsectionJSON({
+                        has_changes: true,
+                        is_time_limited: true,
+                        is_practice_exam: true,
+                        is_proctored_exam: true,
+                        default_time_limit_minutes: 150,
+                        supports_onboarding: false,
+                        show_review_rules: true,
+                    }, [
+                    ])
+                ])
+            ]);
             createCourseOutlinePage(this, mockCourseWithSpecialExamJSON, false);
             outlinePage.$('.outline-subsection .configure-button').click();
             setEditModalValues('7/9/2014', '7/10/2014', 'Lab');
