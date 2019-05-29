@@ -154,6 +154,9 @@ class ProctoredExamTest(UniqueCourseTest):
         course_fix.add_advanced_settings({
             "enable_proctored_exams": {"value": "true"}
         })
+        course_fix.add_advanced_settings({
+            "show_review_rules": {"value": "true"}
+        })
 
         course_fix.add_children(
             XBlockFixtureDesc('chapter', 'Test Section 1').add_children(
