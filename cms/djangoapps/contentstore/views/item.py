@@ -86,7 +86,8 @@ ALWAYS = lambda x: True
 highlights_setting = WaffleSwitch(u'dynamic_pacing', u'studio_course_update')
 WAFFLE_FLAG_NAMESPACE = WaffleFlagNamespace(name=u'test_settings')
 SHOW_REVIEW_RULES_FLAG = CourseWaffleFlag(
-    WAFFLE_FLAG_NAMESPACE, flag_name=u'show_review_rules',
+    WAFFLE_FLAG_NAMESPACE,
+    flag_name=u'show_review_rules',
     flag_undefined_default=False
 )
 
