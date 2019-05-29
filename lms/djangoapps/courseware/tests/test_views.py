@@ -35,8 +35,8 @@ from xblock.fields import Scope, String
 import courseware.views.views as views
 import shoppingcart
 from capa.tests.response_xml_factory import MultipleChoiceResponseXMLFactory
-from course_modes.models import CourseMode
-from course_modes.tests.factories import CourseModeFactory
+from openedx.core.djangoapps.course_modes.models import CourseMode
+from openedx.core.djangoapps.course_modes.tests.factories import CourseModeFactory
 from courseware.access_utils import check_course_open_for_learner
 from courseware.model_data import FieldDataCache, set_score
 from courseware.module_render import get_module, handle_xblock_callback
@@ -2532,7 +2532,7 @@ class TestIndexView(ModuleStoreTestCase):
     def test_should_show_enroll_button(self, course_open_for_self_enrollment,
                                        invitation_only, is_masters_only, expected_should_show_enroll_button):
         with patch('courseware.views.views.course_open_for_self_enrollment') as patch_course_open_for_self_enrollment, \
-                patch('course_modes.models.CourseMode.is_masters_only') as patch_is_masters_only:
+                patch('openedx.core.djangoapps.course_modes.models.CourseMode.is_masters_only') as patch_is_masters_only:
             course = CourseFactory()
 
             patch_course_open_for_self_enrollment.return_value = course_open_for_self_enrollment
